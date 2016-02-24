@@ -31,9 +31,9 @@ services:
       - 27017:27017
       - 28017:28017
     links:
-    command: /usr/bin/mongod --replSet rs --smallfiles --oplogSize 128 --rest
       - mongo2:mongo2
       - mongo3:mongo3
+    command: /usr/bin/mongod --replSet rs --smallfiles --oplogSize 128 --rest
     restart: always
 
   mongosetup:
