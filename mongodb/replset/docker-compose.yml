@@ -3,10 +3,11 @@ services:
   mongo3:
     container_name: mongo3
     image: mongo:3.2
-    log_driver: syslog
-    log_opt:
-      syslog-facility: local6
-      tag: rocketchat
+    logging:
+      driver: syslog
+      log_opt:
+        syslog-facility: local6
+        tag: rocketchat
     expose:
       - "27017"
     ports:
@@ -18,10 +19,11 @@ services:
   mongo2:
     container_name: mongo2
     image: mongo:3.2
-    log_driver: syslog
-    log_opt:
-      syslog-facility: local6
-      tag: rocketchat
+    logging:
+      driver: syslog
+      log_opt:
+        syslog-facility: local6
+        tag: rocketchat
     expose:
       - "27017"
     ports:
@@ -33,10 +35,11 @@ services:
   mongo1:
     container_name: mongo1
     image: mongo:3.2
-    log_driver: syslog
-    log_opt:
-      syslog-facility: local6
-      tag: rocketchat
+    logging:
+      driver: syslog
+      log_opt:
+        syslog-facility: local6
+        tag: rocketchat
     expose:
       - "27017"
     ports:
@@ -50,10 +53,11 @@ services:
 
   mongosetup:
     image: mongo:3.2
-    log_driver: syslog
-    log_opt:
-      syslog-facility: local6
-      tag: rocketchat
+    logging:
+      driver: syslog
+      log_opt:
+        syslog-facility: local6
+        tag: rocketchat
     links:
       - mongo1:mongo1
       - mongo2:mongo2
