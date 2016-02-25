@@ -3,6 +3,8 @@ services:
   mongo3:
     container_name: mongo3
     image: mongo:3.2
+    networks:
+      - mongodb
     logging:
       driver: syslog
       options:
@@ -19,6 +21,8 @@ services:
   mongo2:
     container_name: mongo2
     image: mongo:3.2
+    networks:
+      - mongodb
     logging:
       driver: syslog
       options:
@@ -35,6 +39,8 @@ services:
   mongo1:
     container_name: mongo1
     image: mongo:3.2
+    networks:
+      - mongodb
     logging:
       driver: syslog
       options:
@@ -53,6 +59,8 @@ services:
 
   mongosetup:
     image: mongo:3.2
+    networks:
+      - mongodb
     logging:
       driver: syslog
       options:
@@ -65,3 +73,7 @@ services:
     volumes:
       - ./scripts:/scripts
     entrypoint: [ "/scripts/setup-replset.sh" ]
+
+networks:
+  mongodb:
+    driver: bridge
