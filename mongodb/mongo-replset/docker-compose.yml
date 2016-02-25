@@ -43,8 +43,8 @@ services:
     expose:
       - "27017"
     ports:
-      - 27017:27017
-      - 28017:28017
+      - 27016:27017
+      - 28016:28017
     links:
       - mongo2:mongo2
       - mongo3:mongo3
